@@ -1,0 +1,21 @@
+name: Scheduled Job
+
+on:
+  schedule:
+    - cron: '0 */8 * * *' # 每隔8个小时触发，可以根据需求修改时间表达式
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x # 替换为您的Python版本
+
+      - name: Run Python script
+        run: python run.py # 替换为您的Python文件或脚本名称
